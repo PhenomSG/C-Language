@@ -16,20 +16,29 @@ void sum1()
     printf("%d",sum);
 }
 
-void sum2()
+int sum2()
 {
     int a,b;
     int sum;
     a = 5;
     b = 7;
     sum = a + b;
-    return sum
+    return sum;
+}
+
+void sum3(int a, int b)
+{
+    int sum;
+    sum = a + b;
+    printf("%d",sum);
+
 }
 
 int main()
 {
     sum1();
-    sum2();
+    printf("\n%d\n",sum2());
+    sum3(3,8);
+    printf("%d",sum4(6,7));
 
 }
-
