@@ -16,6 +16,7 @@ void sum1()
     printf("%d",sum);
 }
 
+// 2. no arg with rt
 int sum2()
 {
     int a,b;
@@ -26,6 +27,7 @@ int sum2()
     return sum;
 }
 
+// 3. with arg no rt
 void sum3(int a, int b)
 {
     int sum;
@@ -34,6 +36,7 @@ void sum3(int a, int b)
 
 }
 
+// 4. with arg with rt
 int sum4(int a, int b)
 {
     int sum;
