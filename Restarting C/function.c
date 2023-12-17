@@ -34,11 +34,18 @@ void sum3(int a, int b)
 
 }
 
+int sum4(int a, int b)
+{
+    int sum;
+    sum = a + b;
+    return sum;
+}
+
 int main()
 {
     sum1();
     printf("\n%d\n",sum2());
     sum3(3,8);
-    printf("%d",sum4(6,7));
+    printf("\n%d\n",sum4(6,7));
 
 }
