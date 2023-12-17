@@ -1,5 +1,5 @@
 #include <stdio.h>  // standard input output header file
-#include <conio.h>  //console input/output
+#include <conio.h>  //console input/output -> takes input from keyboard and displays on screen
 
 int main()
 {
