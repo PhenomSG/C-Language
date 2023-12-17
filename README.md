@@ -20,7 +20,7 @@ Feel free to navigate through the directories and explore the code.
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/your-username/code-study.git
+   git clone https://github.com/SahajG009/C-Language.git
    ```
 
 2. **Navigate to a Specific Directory:**
