@@ -13,5 +13,7 @@ int main()
         j++;
     }
     
-    printf("Length of string is %d",i);
+    printf("Length of string is %d\n",i);
+    printf("Length of string is %d\n",j);
+    printf("Length of string is %d",strlen(s));
 }
