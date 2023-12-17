@@ -7,5 +7,11 @@ int main()
     int i;
     for(i=0;s[i]!='\0';i++)
     {}
+    int j=0;
+    while (s[j]!='\0')
+    {
+        j++;
+    }
+    
     printf("Length of string is %d",i);
 }
