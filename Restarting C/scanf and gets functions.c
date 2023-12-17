@@ -14,6 +14,9 @@ int main()
     gets(s1);
     printf("%s",s1);
 
+ // for both scanf and gets there is a drawback called BUFFER OVERFLOW
+ // even if space is low it will save all the input by earsing other data which is dangerous   
+
     // fgets function
     char s2[15];
     printf("Enter new name: ");
