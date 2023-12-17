@@ -10,7 +10,7 @@
 int main()
 {
     int i,j;
-    int a[2][2] = {
+    int a[2][2] = {     // arrayname[row][col]
         {1,2},
         {3,4}
     };
