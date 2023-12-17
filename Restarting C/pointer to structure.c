@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+// structure pointer is a pointer which points to the address of the memory block that stores the structure
 struct student
 {
     int rollno;
