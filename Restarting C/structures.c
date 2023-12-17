@@ -13,6 +13,14 @@ struct student    // struct -> keyword
     float marks;    // 20 bytes
 };
 
+// typedef -> used to create alias name of any data type
+typedef struct student1
+{
+    int a;
+    char c;
+    float salary;
+}stu;   // its not a variable name, its an aliass name
+
 void main()
 {
     struct student s = {1,"sahaj",100};     // order is important
