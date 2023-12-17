@@ -15,9 +15,9 @@ struct student    // struct -> keyword
 
 void main()
 {
-    struct student s = {1,'sahaj',100};     // order is important
+    struct student s = {1,"sahaj",100};     // order is important
     printf("%d\n", s.rollno);         // . (dot) is a membership operator
     printf("%s\n", s.name);
-    printf("%d\n", s.marks);
+    printf("%f\n", s.marks);
 }
 
