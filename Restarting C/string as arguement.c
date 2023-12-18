@@ -1,4 +1,5 @@
 // string as arguement
+// strings are always passed as call by "reference"
 
 void display(char []);
 
