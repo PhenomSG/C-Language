@@ -1,3 +1,5 @@
+// array is always passed as "call by reference" 
+
 #include <stdio.h>
 
 int avg(int [], int);
@@ -11,6 +13,7 @@ void main()
 }
 
 int avg(int marks[],int a)
+// the compiler treats int marks[] as int * marks
 {
     int i, sum = 0, average = 0;
     for(i=0;i<a;i++)
