@@ -1,0 +1,13 @@
+Certainly, here's a comparison between macros and enums in tabular form:
+
+|--------------------------|------------------------------------------------------------|---------------------------------------------------|
+| Feature                  | Macros                                                     | Enums                                             |
+|--------------------------|------------------------------------------------------------|---------------------------------------------------|
+| **Purpose**              | General-purpose text replacement                           | Named integer constants with type safety          |
+| **Definition**           | `#define NAME value`                                       | `enum TypeName { CONSTANT1, CONSTANT2, ... };`    |
+| **Type Safety**          | Lacks type information                                     | Provides type safety through named constants      |
+| **Debugging**            | Limited debugging support (no symbolic names)              | Better debugging support (symbolic names preserved) |
+| **Readability**          | Depends on usage; may reduce code readability if overused  | Enhances code readability with meaningful names   |
+| **Use Cases**            | Constants, conditional compilation, code generation        | Sets of related named constants with type safety  |
+| **Example**              | `#define MAX_SIZE 100`                                     | `enum Days { MONDAY, TUESDAY, ... };`             |
+|--------------------------|------------------------------------------------------------|---------------------------------------------------|
