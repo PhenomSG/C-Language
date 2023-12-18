@@ -1,4 +1,8 @@
 // structure packing
+// int - 4
+// char - 1
+// padding - size = 8
+//packing - size = 5
 
 #include <stdio.h>
 #pragma pack(1)
