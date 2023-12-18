@@ -1,4 +1,4 @@
-// structure padding
+// structure padding -> read more
 // it is the process of inserting some extra bytes between variables just to align the data
 // now a days memory is WORD addressable not byte addressable
 
