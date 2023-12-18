@@ -4,8 +4,9 @@
 // declaration
 // DataType(* pointer name)(DataType of arguement)
 
+// difference btw them is very important
 // int * ptr(int,int) -> this means ptr is a function as it belongs to () not * due to OPERATOR PRECEDENCE
-// here, ptr is a function pointer which accepts 2 integer arguements
+// int (* ptr)(int,int) -> here, ptr is a function pointer which accepts 2 integer arguements
 
 #include <stdio.h>
 
