@@ -9,7 +9,7 @@ void main()
     int * p;
     int a[] = {1,2,3,4,5};
     p = rtrptr(a);
-    printf("%d",*p);
+    printf("%d",*p);    // output = 3
 }
 
 int * rtrptr(int a[])
