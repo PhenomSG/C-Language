@@ -1,5 +1,6 @@
 // enum is a user defined function
 // used to assign name to integral values
+// if you don't explicitly assign values, they are assigned sequentially starting from 0.
 
 #include <stdio.h>
 
