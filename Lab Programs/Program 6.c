@@ -1,81 +1,113 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define MAX_SIZE 100
-
-// Structure to represent a sparse matrix element
-struct Element {
-    int row;
-    int col;
-    int value;
+// Define the structure for a node in the linked list
+struct Node {
+    int data;
+    struct Node* next;
 };
 
-// Structure to represent a sparse matrix
-struct SparseMatrix {
-    int numRows;
-    int numCols;
-    int numElements;
-    struct Element* elements;
-};
-
-// Function to read a sparse matrix from user input
-void readSparseMatrix(struct SparseMatrix* matrix) {
-    printf("Enter the number of rows and columns of the matrix: ");
-    scanf("%d %d", &matrix->numRows, &matrix->numCols);
-
-    printf("Enter the number of non-zero elements: ");
-    scanf("%d", &matrix->numElements);
-
-    matrix->elements = (struct Element*)malloc(matrix->numElements * sizeof(struct Element));
-
-    printf("Enter the non-zero elements in the format <row> <column> <value>:\n");
-    for (int i = 0; i < matrix->numElements; ++i) {
-        scanf("%d %d %d", &matrix->elements[i].row, &matrix->elements[i].col, &matrix->elements[i].value);
+// Function to insert a new element at the beginning of the linked list
+struct Node* insertAtBeginning(struct Node* head, int value) {
+    // Create a new node
+    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+    if (newNode == NULL) {
+        printf("Memory allocation failed.\n");
+        exit(1);
     }
+
+    // Set the data and next pointer of the new node
+    newNode->data = value;
+    newNode->next = head;
+
+    // Update the head to point to the new node
+    head = newNode;
+
+    printf("Element %d inserted at the beginning.\n", value);
+
+    return head;
 }
 
-// Function to print a sparse matrix
-void printSparseMatrix(struct SparseMatrix matrix) {
-    printf("Sparse Matrix:\n");
-    printf("Rows: %d, Columns: %d\n", matrix.numRows, matrix.numCols);
-    printf("Non-zero Elements:\n");
-
-    for (int i = 0; i < matrix.numElements; ++i) {
-        printf("<%d, %d, %d>\n", matrix.elements[i].row, matrix.elements[i].col, matrix.elements[i].value);
+// Function to delete an element from the linked list
+struct Node* deleteElement(struct Node* head, int value) {
+    // If the list is empty, nothing to delete
+    if (head == NULL) {
+        printf("List is empty. Cannot delete element.\n");
+        return head;
     }
+
+    // If the element to be deleted is the first element
+    if (head->data == value) {
+        struct Node* temp = head;
+        head = head->next;
+        free(temp);
+        printf("Element %d deleted from the list.\n", value);
+        return head;
+    }
+
+    // Traverse the list to find the element to be deleted
+    struct Node* current = head;
+    struct Node* prev = NULL;
+
+    while (current != NULL && current->data != value) {
+        prev = current;
+        current = current->next;
+    }
+
+    // If the element is not found
+    if (current == NULL) {
+        printf("Element %d not found in the list.\n", value);
+        return head;
+    }
+
+    // Element found, delete it
+    prev->next = current->next;
+    free(current);
+    printf("Element %d deleted from the list.\n", value);
+
+    return head;
 }
 
-// Function to search for an element in the sparse matrix
-void searchElement(struct SparseMatrix matrix, int targetRow, int targetCol) {
-    for (int i = 0; i < matrix.numElements; ++i) {
-        if (matrix.elements[i].row == targetRow && matrix.elements[i].col == targetCol) {
-            printf("Element found at position <%d, %d, %d>\n", matrix.elements[i].row, matrix.elements[i].col, matrix.elements[i].value);
-            return;
-        }
+// Function to display the elements of the linked list
+void displayList(struct Node* head) {
+    printf("Linked List: ");
+    while (head != NULL) {
+        printf("%d ", head->data);
+        head = head->next;
     }
+    printf("\n");
+}
 
-    printf("Element not found in the sparse matrix.\n");
+// Function to free the memory allocated for the linked list
+void freeList(struct Node* head) {
+    struct Node* temp;
+    while (head != NULL) {
+        temp = head;
+        head = head->next;
+        free(temp);
+    }
 }
 
 int main() {
-    struct SparseMatrix matrix;
-    int targetRow, targetCol;
+    // Initialize an empty linked list
+    struct Node* head = NULL;
 
-    // Read sparse matrix from user input
-    readSparseMatrix(&matrix);
+    // Insert elements at the beginning
+    head = insertAtBeginning(head, 30);
+    head = insertAtBeginning(head, 20);
+    head = insertAtBeginning(head, 10);
 
-    // Print sparse matrix
-    printSparseMatrix(matrix);
+    // Display the initial linked list
+    displayList(head);
 
-    // Get user input for element search
-    printf("Enter the row and column to search for an element: ");
-    scanf("%d %d", &targetRow, &targetCol);
+    // Delete an element from the list
+    head = deleteElement(head, 20);
 
-    // Search for the element in the sparse matrix
-    searchElement(matrix, targetRow, targetCol);
+    // Display the updated linked list
+    displayList(head);
 
-    // Free dynamically allocated memory
-    free(matrix.elements);
+    // Free the memory allocated for the linked list
+    freeList(head);
 
     return 0;
 }
