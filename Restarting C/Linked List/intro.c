@@ -8,26 +8,23 @@
 // node has two parts - data part and address part
 // only forward sequential movement is possible
 
-#include <stdio.h>
-#include <stdlib.h>
+// sll
+ #include <stdio.h>
 
-struct Node {
+ struct node
+ {
 	int data;
-	struct Node* next;
-	struct Node* prev;
-};
+	struct node * next
+ };
+ 
+// dll
+ struct dnode
+ {
+	int data;
+	struct node * next;
+	struct node * prev;
+ };
 
-struct DoublyLinkedList {
-	struct Node* head;
-};
-
-void addNode(struct DoublyLinkedList* list, int data) {
-	struct Node* newNode = (struct Node*) malloc(sizeof(struct Node));
-	newNode->data = data;
-	newNode->next = list->head;
-	newNode->prev = NULL;
-	if (list->head != NULL) {
-		list->head->prev = newNode;
-	}
-	list->head = newNode;
-}
+ // cll - variation of sll
+ 
+ 
