@@ -5,6 +5,9 @@
 // 3. Circular Linked List
 // 4. Doubly Linked List
 
+// node has two parts - data part and address part
+// only forward sequential movement is possible
+
 #include <stdio.h>
 #include <stdlib.h>
 
