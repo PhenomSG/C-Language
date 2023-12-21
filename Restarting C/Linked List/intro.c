@@ -26,5 +26,6 @@
  };
 
  // cll - variation of sll
+ // last node points to address of first node
  
  
