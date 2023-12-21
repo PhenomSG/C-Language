@@ -1,3 +1,10 @@
+// linked list - 
+// types of linked list
+// 1. singley linked list
+// 2. Doubly linked list
+// 3. Circular Linked List
+// 4. Doubly Linked List
+
 #include <stdio.h>
 #include <stdlib.h>
 
