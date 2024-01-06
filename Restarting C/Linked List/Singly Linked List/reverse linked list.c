@@ -5,8 +5,8 @@ void reverse()
     currentnode = nextnode = head;
     while(nextnode!=0)
     {
-        nextnode = nextnode -> next;
-        currentnode -> next = prevnode;
+        nextnode = nextnode->next;
+        currentnode->next = prevnode;
         prevnode = currentnode;
         currentnode = nextnode;
     }
