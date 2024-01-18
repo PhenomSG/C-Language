@@ -11,7 +11,7 @@ void insrtbegin(struct Node** head, int newData) {
     newNode->data = newData;
     newNode->next = *head;
     *head = newNode;
-    printf("Inserted at the beginning\n");
+    printf("\n%d Inserted at the beginning\n",newData);
 }
 
 int main() {
