@@ -118,7 +118,7 @@ int main()
         }
     }
 
-    // Print the linked list after insertion
+    // Print the linked list 
     struct Node *tempPrint = head;
     while (tempPrint != NULL)
     {
