@@ -13,6 +13,25 @@ void insrtbegin(struct Node** head, int newData) {
     *head = newNode;
     printf("\n%d Inserted at the beginning\n",newData);
 }
+void insrtend(struct Node **head, int newData) {
+    struct Node* newNode = (struct Node *)malloc(sizeof(struct Node));
+    newNode->data = newData;
+    newNode->next = NULL; // Initialize the new node's next pointer to NULL since it will be the last node
+
+    if (*head == NULL) {
+        // If the list is empty, make the new node the head
+        *head = newNode;
+        return;
+    }
+
+    struct Node* temp = *head;
+    while (temp->next != NULL) {
+        temp = temp->next;
+    }
+
+    // Now temp points to the last node in the list
+    temp->next = newNode;
+}
 
 int main() {
 
@@ -48,6 +67,9 @@ int main() {
 
     // Insert at the beginning
     insrtbegin(&head, 100);
+
+    // Insert at the end
+    insrtend(&head,200);
 
     // Traversing the modified singly linked list
     temp = head;
