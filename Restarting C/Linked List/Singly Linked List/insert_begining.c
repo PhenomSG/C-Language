@@ -13,6 +13,8 @@ void insrtbegin(struct Node** head, int newData) {
     *head = newNode;
     printf("\n%d Inserted at the beginning\n",newData);
 }
+
+// Insert at End
 void insrtend(struct Node **head, int newData) {
     struct Node* newNode = (struct Node *)malloc(sizeof(struct Node));
     newNode->data = newData;
@@ -30,6 +32,56 @@ void insrtend(struct Node **head, int newData) {
     }
 
     // Now temp points to the last node in the list
+    temp->next = newNode;
+}
+
+// Insert at a specific position
+void insrtpos(struct Node **head) {
+    int pos, newData;
+    printf("Position you want to enter data: ");
+    scanf("%d", &pos);
+
+    // Validate if the position is valid
+    if (pos < 1) {
+        printf("Invalid position\n");
+        return;
+    }
+
+    // Create a new node
+    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+    if (newNode == NULL) {
+        printf("Memory allocation failed\n");
+        return;
+    }
+
+    printf("Enter data for the new node: ");
+    scanf("%d", &newData);
+
+    newNode->data = newData;
+    newNode->next = NULL;
+
+    // If inserting at the beginning
+    if (pos == 1) {
+        newNode->next = *head;
+        *head = newNode;
+        return;
+    }
+
+    // Traverse to the node just before the desired position
+    struct Node* temp = *head;
+    for (int i = 1; i < pos - 1 && temp != NULL; ++i) {
+        temp = temp->next;
+    }
+
+    // Check if the position is beyond the current size of the list
+    if (temp == NULL) {
+        printf("Position is beyond the size of the list\n");
+        free(newNode);  // Free the allocated memory
+        return;
+    }
+
+    // Insert the new node at the specified position
+    newNode->next = temp->next;
     temp->next = newNode;
 }
 
@@ -70,6 +122,9 @@ int main() {
 
     // Insert at the end
     insrtend(&head,200);
+
+    // insert at position
+    insrtpos(&head);
 
     // Traversing the modified singly linked list
     temp = head;
