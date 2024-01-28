@@ -1,6 +1,3 @@
-Certainly! Below is a sample `README.md` file for a repository where you store your C and C++ code for personal study:
-
-```markdown
 # Code Study Repository
 
 This repository is dedicated to storing my C and C++ code as part of my personal study and exploration of programming concepts in these languages. The code included here is written for learning purposes, experimentation, and understanding various algorithms, data structures, and programming techniques.
@@ -53,6 +50,3 @@ Feel free to navigate through the directories and explore the code.
 This code is provided under the [MIT License](LICENSE). Feel free to use, modify, and share the code as per the terms of the license.
 
 Happy coding!
-```
-
-Adjust the content and structure based on your preferences and the specific content in your repository. You can include more sections such as acknowledgments, references, or specific instructions for each code file or project.
