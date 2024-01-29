@@ -48,8 +48,3 @@ Feel free to navigate through the directories and explore the code.
 ## License
 
 This code is provided under the [MIT License](LICENSE). Feel free to use, modify, and share the code as per the terms of the license.
-
-Happy coding!
-```
-
-Adjust the content and structure based on your preferences and the specific content in your repository. You can include more sections such as acknowledgments, references, or specific instructions for each code file or project.
