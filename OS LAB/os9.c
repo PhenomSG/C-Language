@@ -1,45 +1,63 @@
 #include <stdio.h>
-#include <stdlib.h>
-void recurse(int files[])
-{
-    int flag = 0, startBlock, len, j, k, ch;
-    printf("Enter the starting block and the length of the files: ");
-    scanf("%d%d", &startBlock, &len);
-    for (j = startBlock; j < (startBlock + len); j++)
-    {
-        if (files[j] == 0)
-            flag++;
-    }
-    if (len == flag)
-    {
-        for (int k = startBlock; k < (startBlock + len); k++)
-        {
-            if (files[k] == 0)
-            {
-                files[k] = 1;
-                printf("%d\t%d\n", k, files[k]);
-            }
-        }
-        if (k != (startBlock + len - 1))
-            printf("The file is allocated to the disk\n");
-    }
-    else
-        printf("The file is not allocated to the disk\n");
-    printf("Do you want to enter more files?\n");
-    printf("Press 1 for YES, 0 for NO: ");
-    scanf("%d", &ch);
-    if (ch == 1)
-        recurse(files);
-    else
-        exit(0);
-    return;
-}
+
 int main()
 {
-    int files[50];
-    for (int i = 0; i < 50; i++)
-        files[i] = 0;
-    printf("Files Allocated are :\n");
-    recurse(files);
+    int i, j, k, min, rs[25], m[10], count[10], flag[25], n, f, pf = 0, next = 1;
+    printf("Enter the length of reference string -- ");
+    scanf("%d", &n);
+    printf("Enter the reference string -- ");
+    for (i = 0; i < n; i++)
+    {
+        scanf("%d", &rs[i]);
+        flag[i] = 0;
+    }
+    printf("Enter the number of frames -- ");
+    scanf("%d", &f);
+    for (i = 0; i < f; i++)
+    {
+        count[i] = 0;
+        m[i] = -1;
+    }
+    printf("\nThe Page Replacement process is -- \n");
+    for (i = 0; i < n; i++)
+    {
+        for (j = 0; j < f; j++)
+        {
+            if (m[j] == rs[i])
+            {
+                flag[i] = 1;
+                count[j] = next;
+                next++;
+            }
+        }
+        if (flag[i] == 0)
+        {
+            if (i < f)
+            {
+                m[i] = rs[i];
+                count[i] = next;
+                next++;
+            }
+            else
+            {
+                min = 0;
+                for (j = 1; j < f; j++)
+                {
+                    if (count[min] > count[j])
+                        min = j;
+                }
+                m[min] = rs[i];
+                count[min] = next;
+                next++;
+            }
+            pf++;
+        }
+        for (j = 0; j < f; j++)
+            printf("%d\t", m[j]);
+        if (flag[i] == 0)
+            printf("PF No. -- %d", pf);
+        printf("\n");
+    }
+    printf("\nThe number of page faults using LRU are %d", pf);
     return 0;
 }

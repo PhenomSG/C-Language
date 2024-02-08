@@ -1,63 +1,45 @@
 #include <stdio.h>
-
-int main()
+void main()
 {
-    int i, j, k, min, rs[25], m[10], count[10], flag[25], n, f, pf = 0, next = 1;
-    printf("Enter the length of reference string -- ");
-    scanf("%d", &n);
-    printf("Enter the reference string -- ");
-    for (i = 0; i < n; i++)
+    int fragment[20], b[20], p[20], i, j, nb, np, temp, lowest = 9999;
+    static int barray[20], parray[20];
+    printf("\n\t\t\tMemory Management Scheme - Best Fit");
+    printf("\nEnter the number of blocks:");
+    scanf("%d", &nb);
+    printf("Enter the number of processes:");
+    scanf("%d", &np);
+    printf("\nEnter the size of the blocks:-\n");
+    for (i = 1; i <= nb; i++)
     {
-        scanf("%d", &rs[i]);
-        flag[i] = 0;
+        printf("Block no.%d:", i);
+        scanf("%d", &b[i]);
     }
-    printf("Enter the number of frames -- ");
-    scanf("%d", &f);
-    for (i = 0; i < f; i++)
+    printf("\nEnter the size of the processes :-\n");
+    for (i = 1; i <= np; i++)
     {
-        count[i] = 0;
-        m[i] = -1;
+        printf("Process no.%d:", i);
+        scanf("%d", &p[i]);
     }
-    printf("\nThe Page Replacement process is -- \n");
-    for (i = 0; i < n; i++)
+    for (i = 1; i <= np; i++)
     {
-        for (j = 0; j < f; j++)
+        for (j = 1; j <= nb; j++)
         {
-            if (m[j] == rs[i])
+            if (barray[j] != 1)
             {
-                flag[i] = 1;
-                count[j] = next;
-                next++;
+                temp = b[j] - p[i];
+                if (temp >= 0)
+                    if (lowest > temp)
+                    {
+                        parray[i] = j;
+                        lowest = temp;
+                    }
             }
         }
-        if (flag[i] == 0)
-        {
-            if (i < f)
-            {
-                m[i] = rs[i];
-                count[i] = next;
-                next++;
-            }
-            else
-            {
-                min = 0;
-                for (j = 1; j < f; j++)
-                {
-                    if (count[min] > count[j])
-                        min = j;
-                }
-                m[min] = rs[i];
-                count[min] = next;
-                next++;
-            }
-            pf++;
-        }
-        for (j = 0; j < f; j++)
-            printf("%d\t", m[j]);
-        if (flag[i] == 0)
-            printf("PF No. -- %d", pf);
-        printf("\n");
+        fragment[i] = lowest;
+        barray[parray[i]] = 1;
+        lowest = 10000;
     }
-    printf("\nThe number of page faults using LRU are %d", pf);
-    return 0;
+    printf("\nProcess_no\tProcess_size\tBlock_no\tBlock_size\tFragment");
+    for (i = 1; i <= np && parray[i] != 0; i++)
+        printf("\n%d\t\t%d\t\t%d\t\t%d\t\t%d", i, p[i], parray[i], b[parray[i]], fragment[i]);
 }

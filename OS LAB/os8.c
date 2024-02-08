@@ -1,45 +1,45 @@
 #include <stdio.h>
-void main()
+#include <stdlib.h>
+void recurse(int files[])
 {
-    int fragment[20], b[20], p[20], i, j, nb, np, temp, lowest = 9999;
-    static int barray[20], parray[20];
-    printf("\n\t\t\tMemory Management Scheme - Best Fit");
-    printf("\nEnter the number of blocks:");
-    scanf("%d", &nb);
-    printf("Enter the number of processes:");
-    scanf("%d", &np);
-    printf("\nEnter the size of the blocks:-\n");
-    for (i = 1; i <= nb; i++)
+    int flag = 0, startBlock, len, j, k, ch;
+    printf("Enter the starting block and the length of the files: ");
+    scanf("%d%d", &startBlock, &len);
+    for (j = startBlock; j < (startBlock + len); j++)
     {
-        printf("Block no.%d:", i);
-        scanf("%d", &b[i]);
+        if (files[j] == 0)
+            flag++;
     }
-    printf("\nEnter the size of the processes :-\n");
-    for (i = 1; i <= np; i++)
+    if (len == flag)
     {
-        printf("Process no.%d:", i);
-        scanf("%d", &p[i]);
-    }
-    for (i = 1; i <= np; i++)
-    {
-        for (j = 1; j <= nb; j++)
+        for (int k = startBlock; k < (startBlock + len); k++)
         {
-            if (barray[j] != 1)
+            if (files[k] == 0)
             {
-                temp = b[j] - p[i];
-                if (temp >= 0)
-                    if (lowest > temp)
-                    {
-                        parray[i] = j;
-                        lowest = temp;
-                    }
+                files[k] = 1;
+                printf("%d\t%d\n", k, files[k]);
             }
         }
-        fragment[i] = lowest;
-        barray[parray[i]] = 1;
-        lowest = 10000;
+        if (k != (startBlock + len - 1))
+            printf("The file is allocated to the disk\n");
     }
-    printf("\nProcess_no\tProcess_size\tBlock_no\tBlock_size\tFragment");
-    for (i = 1; i <= np && parray[i] != 0; i++)
-        printf("\n%d\t\t%d\t\t%d\t\t%d\t\t%d", i, p[i], parray[i], b[parray[i]], fragment[i]);
+    else
+        printf("The file is not allocated to the disk\n");
+    printf("Do you want to enter more files?\n");
+    printf("Press 1 for YES, 0 for NO: ");
+    scanf("%d", &ch);
+    if (ch == 1)
+        recurse(files);
+    else
+        exit(0);
+    return;
+}
+int main()
+{
+    int files[50];
+    for (int i = 0; i < 50; i++)
+        files[i] = 0;
+    printf("Files Allocated are :\n");
+    recurse(files);
+    return 0;
 }
