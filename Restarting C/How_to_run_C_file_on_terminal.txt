@@ -30,3 +30,7 @@ For example, if your program is saved in the "Documents" folder, you would use:
    your_program.exe
    ```
    Replace "your_program" with the actual name of your executable file.
+
+*** For Power Shell
+Windows PowerShell does not load commands from the current location by default.
+If you trust this command, instead type: ".\Bubble_Sort.exe".
