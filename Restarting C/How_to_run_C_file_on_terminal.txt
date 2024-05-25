@@ -1,0 +1,32 @@
+Running a C program in the terminal on Windows involves a few steps. Here's a basic guide:
+
+1. **Install a C Compiler**: 
+If you haven't already, you'll need to install a C compiler. One popular option is the GNU Compiler Collection (GCC). 
+You can install GCC on Windows using MinGW (Minimalist GNU for Windows) or Cygwin. 
+Alternatively, you can use Microsoft's Visual Studio C++ Compiler if you have Visual Studio installed.
+
+2. **Write Your C Program**: 
+Use a text editor like Notepad, Visual Studio Code, or any other text editor of your choice to write your C program. 
+Save the file with a ".c" extension.
+
+3. **Open Command Prompt**: 
+Press `Win + R`, type `cmd`, and press Enter to open the Command Prompt.
+
+4. **Navigate to Your C Program's Directory**: 
+Use the `cd` command to navigate to the directory where your C program is saved. 
+For example, if your program is saved in the "Documents" folder, you would use:
+   ```
+   cd Documents
+   ```
+
+5. **Compile Your Program**: Use the C compiler to compile your program. If you're using GCC, the command is usually:
+   ```
+   gcc your_program.c -o your_program
+   ```
+   This command will compile your C program into an executable file named "your_program.exe".
+
+6. **Run Your Program**: Once your program is compiled successfully, you can run it from the Command Prompt:
+   ```
+   your_program.exe
+   ```
+   Replace "your_program" with the actual name of your executable file.
