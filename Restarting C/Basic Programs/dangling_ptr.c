@@ -1,5 +1,7 @@
 #include <stdio.h>
 int * fun(){
+    //static int a;
+    // if we use static we can access it
     int a;
     return &a;
 }
