@@ -9,6 +9,7 @@ struct Stack {
 	unsigned capacity; 
 	int* array; 
 }; 
+// okok
 
 // function to create a stack of given capacity. It initializes size of 
 // stack as 0 
