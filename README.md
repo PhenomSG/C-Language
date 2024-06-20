@@ -1,6 +1,7 @@
 # Code Study Repository
 
-This repository is dedicated to storing my C and C++ code as part of my personal study and exploration of programming concepts in these languages. The code included here is written for learning purposes, experimentation, and understanding various algorithms, data structures, and programming techniques.
+This repository is dedicated to storing my C and C++ code as part of my personal study and exploration of programming concepts in these languages. 
+The code included here is written for learning purposes, experimentation, and understanding various algorithms, data structures, and programming techniques.
 
 ## Contents
 
