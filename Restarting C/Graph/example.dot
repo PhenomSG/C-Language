@@ -1,0 +1,5 @@
+digraph G {
+    raj -> simran
+    simran-> main
+    main -> tum
+}
