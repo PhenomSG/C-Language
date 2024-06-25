@@ -1,10 +1,10 @@
 #include<stdio.h>
-#include<conio.h>
 #include<math.h>
 
 #define MAX 4
 
 int max(int a, int b);
+
 void warshal(int p[MAX][MAX], int n) {
     int i, j, k;
     for (k = 0; k < n; k++)
