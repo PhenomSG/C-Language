@@ -32,8 +32,8 @@ int main()
     BFS(graph, 2);
 
     // depth first search
-    //printf("DFS Traversal starting from 2 \n");
-    //DFS(graph, 2);
+    printf("DFS Traversal starting from 2 \n");
+    DFS(graph, 2);
 
     return 0;
 }
@@ -76,8 +76,34 @@ void BFS(int graph[MAX][MAX], int start)
     printf("\n");
 }
 
+// DFS Traversal
+void DFS(int graph[MAX][MAX], int start)
+{
+    // Visited array to keep track of visited nodes
+    int visited[MAX] = {0};
 
+    // Call the recursive helper function to perform DFS traversal
+    DFSUtil(graph, start, visited);
+    
+    printf("\n");
+}
 
+// Recursive function to perform DFS traversal
+void DFSUtil(int graph[MAX][MAX], int start, int visited[MAX])
+{
+    // Mark the current node as visited
+    visited[start] = TRUE;
+    printf("%d -> ", start);
+
+    // Visit all adjacent vertices of the current vertex recursively
+    for (int i = 0; i < MAX; i++)
+    {
+        if (graph[start][i] == 1 && !visited[i])
+        {
+            DFSUtil(graph, i, visited);
+        }
+    }
+}
 
 
 
