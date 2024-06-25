@@ -10,8 +10,7 @@ void deleteEdge(int graph[MAX][MAX], int u, int v);
 int searchEdge(int graph[MAX][MAX], int u, int v);
 void BFS(int graph[MAX][MAX], int start);
 void DFS(int graph[MAX][MAX], int start);
-void DFSUtil(int graph[MAX][MAX], int start,
-             int visited[MAX]);
+void DFSUtil(int graph[MAX][MAX], int start,int visited[MAX]);
 
 int main()
 {
