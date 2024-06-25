@@ -32,8 +32,8 @@ int main()
     BFS(graph, 2);
 
     // depth first search
-    printf("DFS Traversal starting from 2 \n");
-    DFS(graph, 2);
+    //printf("DFS Traversal starting from 2 \n");
+    //DFS(graph, 2);
 
     return 0;
 }
@@ -61,7 +61,7 @@ void BFS(int graph[MAX][MAX], int start)
 
     while (front < rear){
         int curr = queue[front++];
-        printf("%d",curr);
+        printf("%d -> ",curr);
 
         // adjacent nodes
         for (int i = 0; i < MAX; i++)
@@ -72,8 +72,8 @@ void BFS(int graph[MAX][MAX], int start)
                 queue[rear++] = i;    
             }
         }
-        printf("\n");
     }
+    printf("\n");
 }
 
 
