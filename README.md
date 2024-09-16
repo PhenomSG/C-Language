@@ -18,7 +18,7 @@ Feel free to navigate through the directories and explore the code.
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/SahajG009/C-Language.git
+   git clone https://github.com/PhenomSG/C-Language.git
    ```
 
 2. **Navigate to a Specific Directory:**
@@ -37,9 +37,6 @@ Feel free to navigate through the directories and explore the code.
      g++ filename.cpp -o output
      ./output
      ```
-
-4. **Contribute:**
-   - If you find any issues or improvements, feel free to open an issue or create a pull request.
 
 ## Notes
 
